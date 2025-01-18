@@ -3,13 +3,14 @@ import { Text, View, StyleSheet } from "react-native";
 import ImageViewer from "@/components/ImageViewer";
 import Button from "@/components/Button";
 import * as ImagePicker from 'expo-image-picker';
-import { useState } from "react";
+import React, { useState } from "react";
 import IconButton from "@/components/IconButton";
 import CircleButton from "@/components/CircleButton";
 import EmojiPicker from "@/components/EmojiPicker";
 import { ImageSource } from "expo-image";
 import EmojiList from "@/components/EmojiList";
 import EmojiSticker from "@/components/EmojiSticker";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const PlaceholderImage = require('@/assets/images/background-image.png');
 
@@ -52,7 +53,7 @@ export default function Index() {
   }
 
   return (
-    <View
+    <GestureHandlerRootView
       style={styles.container}
     >
       <View style={styles.imageContainer}>
@@ -76,7 +77,7 @@ export default function Index() {
       <EmojiPicker isVisible={isModalVisible} onClose={onModalClose}>
         <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose} />
       </EmojiPicker>
-    </View>
+    </GestureHandlerRootView>
   );
 }
 
